@@ -36,27 +36,61 @@ theme:
   #favicon: 'assets/images/favicon.ico'
 
 # Extensions
+
 markdown_extensions:
-  - admonition
-  - codehilite
-  - footnotes
-  - mdx_math:
-      enable_dollar_delimiter: true
-  - toc:
-      permalink: true
-      separator: "_"
+    - pymdownx.highlight:
+          anchor_linenums: true
+          line_spans: __span
+          pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - admonition
+    - codehilite
+    - pymdownx.arithmatex:
+          generic: true
+    - footnotes
+    - pymdownx.details
+    - pymdownx.superfences
+    - pymdownx.mark
+    - attr_list
+    - md_in_html
+    - toc:
+         permalink: true
+         title: On this page
+           #    - pymdownx.emoji:
+           #emoji_index: !!python/name:material.extensions.emoji.twemoji
+           #    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    - def_list
+    - pymdownx.tasklist:
+          custom_checkbox: true
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+          alternate_style: true
 
 plugins:
+  #- git-authors
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
   - search:
-      separator: '[\s\-\.]+'
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])' 
       lang:
         - en
+  - group:
+      enabled: !ENV INSIDERS
+      plugins:
+        - optimize
+        - privacy
 
 # Customization
 extra_javascript:
-  - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"
+  - javascripts/katex.js
+  - https://d3js.org/d3.v6.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
 extra_css:
-  - "assets/css/custom.css"
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+  - stylesheets/extra.css
 extra:
   manifest: "manifest.json"
   social:
