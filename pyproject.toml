@@ -1,0 +1,40 @@
+[build-system]
+requires = [
+  "hatchling",
+  "hatch-requirements-txt",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "taddyb.github.io"
+dynamic = [
+  "version",
+  "dependencies",
+  "license",
+  "description",
+  "authors",
+  "keywords"
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+recommended = [
+  "mkdocs-minify-plugin~=0.7",
+  "mkdocs-redirects~=1.2",
+  "mkdocs-rss-plugin~=1.6"
+]
+git = [
+  "mkdocs-git-committers-plugin-2~=1.1",
+  "mkdocs-git-revision-date-localized-plugin~=1.2,>=1.2.4"
+]
+imaging = [
+  "pillow~=10.2",
+  "cairosvg~=2.6"
+]
+
+[project.entry-points."mkdocs.themes"]
+material = "material.templates"
+
+[tool.hatch.metadata.hooks.requirements_txt]
+filename = "requirements.txt"
