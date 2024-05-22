@@ -20,6 +20,6 @@ jobs:
           path: .cache
       - run: pip install git+https://taddyb:${{ secrets.GHCR_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
       - run: pip install uv
-        run: uv pip install -r requirements.txt
+      - run: uv pip install -r requirements.txt
       - run: mkdocs build
       - run: mkdocs gh-deploy --force
