@@ -22,6 +22,6 @@ jobs:
       - run: uv venv
       - run: source .venv/bin/activate
       - run: pip install git+https://taddyb:${{ secrets.GHCR_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
-      - run: uv pip install -r requirements.txt
+      - run: uv pip install pillow cairosvg mkdocs-git-committers-plugin mkdocs-material-extensions mkdocs-git-authors-plugin mkdocs-git-revision-date-localized-plugin mkdocs-multirepo-plugin
       - run: mkdocs build
       - run: mkdocs gh-deploy --force
